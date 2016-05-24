@@ -1,0 +1,21 @@
+{
+    "ndk_module_path" :[
+        "../cocos2d",
+        "../cocos2d/cocos",
+        "../cocos2d/external"
+    ],
+    "copy_resources": [
+        {
+            "from": "../Resources",
+            "to": ""
+        },
+	{
+            "from": "external/bugly/armeabi",
+            "to": "../libs/armeabi"
+        },
+	{
+            "from": "external/bugly/armeabi-v7a",
+            "to": "../libs/armeabi-v7a"
+        }
+    ]
+}

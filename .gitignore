@@ -1,0 +1,6 @@
+cocos2d/
+bin/
+proj.win32/Debug.win32/
+proj.android/obj/
+proj.android/libs/armeabi/
+proj.android/libs/armeabi-v7a/
