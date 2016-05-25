@@ -73,8 +73,23 @@ private:
 	void setDataVO(DataVO* vo);
 	void setDataVO(const DataVO& vo);
 	void testSprite();
+	/**
+	* @brief 测试一种错误的做法，以为已经释放了的内存
+	*/
 	void generateChar(char* p);
 	void timeGap(float dt);
+	/**
+	* @brief 主动Crash，
+	*/
+	void crashMe();
+	/**
+	* @brief 显示Android的弹窗界面
+	*/
+	void showAndroidMsg();
+	/**
+	* @brief 测试多线程操作数据，
+	*/
+	void testMulThread();
 };
 
 #endif // __HELLOWORLD_SCENE_H__

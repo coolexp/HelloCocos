@@ -78,7 +78,7 @@ bool HelloWorld::init()
     this->addChild(sprite, 0);
 	testHandler(110);
 
-	
+	// 测试错误的全局指针指向一个已经释放的内存地址
 	DataVO vo;
 	vo.i = 5;
 	// 错误用法
@@ -100,6 +100,8 @@ bool HelloWorld::init()
 	auto sp = Sprite::createWithSpriteFrameName("UI_PublicNew_SubHeroLock1.png");
 	addChild(sp);
 	sp->setPosition(Vec2(100, 200));
+
+	// 测试外部判断某个类是否析构
 	bool isValid = true;
 	{
 		TestData v(&isValid);
@@ -110,9 +112,12 @@ bool HelloWorld::init()
 	else {
 		CCLOG("Not Exit");
 	}
+
+	// 测试错误的写法，导致内存泄露
 	char *p = nullptr;
 	generateChar(p);
 	free(p);
+
     return true;
 }
 // 错误用法
@@ -137,9 +142,11 @@ void HelloWorld::testHandler(int value){
 	});
 	t.detach();
 }
+
 void HelloWorld::generateChar(char* p) {
 	p = (char *)malloc(100 * sizeof(char));
 }
+
 void HelloWorld::timeGap(float dt) {
 	if (m_pCounter) {
 		m_pCounter->increment();
@@ -149,6 +156,13 @@ void HelloWorld::timeGap(float dt) {
 }
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
+	testMulThread();// 测试子线程与GL线程操作同一份数据，数据同步性及准确性
+	return;
+	crashMe();
+	showAndroidMsg();
+}
+
+void HelloWorld::testMulThread(){
 	std::thread tt([=]() {
 		bool isValid = true;
 		m_pCounter = new Counter(&isValid);
@@ -166,30 +180,19 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 	});
 	tt.detach();
 	schedule(CC_SCHEDULE_SELECTOR(HelloWorld::timeGap));
-	
-
-	return;
-	PlatformManager::getInstance()->showTipDialog("111", "1111");
-	static int index = 2;
-	Size visibleSize = Director::getInstance()->getVisibleSize();
-	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-
-	Director::getInstance()->purgeCachedData();
-	ValueMap valueMap = FileUtils::getInstance()->getValueMapFromFile("config.plist");
-	std::string v = valueMap["txt2"].asString();
-	auto label = Label::createWithTTF(v, "fonts/FounderBold.ttf", 24);
-	auto sp = Sprite::createWithSpriteFrameName("UI_PublicNew_TextSucceed.png");
-
-	sp->setPosition(Vec2(origin.x + visibleSize.width / 2,
-		origin.y + visibleSize.height - index++*label->getContentSize().height));
-	addChild(sp);
-	return;
-	std::thread t([=](){
+}
+void HelloWorld::crashMe() {
+	// 子线程
+	std::thread t([=]() {
 		Node* node = nullptr;
 		node->setVisible(false);
 	});
 	t.detach();
-	//PlatformManager::getInstance()->showTipDialog("Tips", "ExitApp");
+}
+
+
+void HelloWorld::showAndroidMsg() {
+	PlatformManager::getInstance()->showTipDialog("Tips", "ExitApp");
 }
 
 void HelloWorld::testSprite(){
