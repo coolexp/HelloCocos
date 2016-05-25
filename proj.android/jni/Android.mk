@@ -14,6 +14,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/AppDelegate.cpp \
                    ../../Classes/platform/PlatformManager.cpp \
                    ../../Classes/platform/android/PlatformManager_Android.cpp \
+                   ../../Classes/UserDataVO.cpp \
                    ../../Classes/HelloWorldScene.cpp
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
