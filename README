@@ -1,10 +1,10 @@
-¸öÈËµÄ²âÊÔCocosÓëÏà¹Ø¹¦ÄÜµÄÊµÀýÏîÄ¿£º
+#ä¸ªäººçš„æµ‹è¯•Cocosä¸Žç›¸å…³åŠŸèƒ½çš„å®žä¾‹é¡¹ç›®ï¼š
 
-1£¬Ìí¼ÓÀàÊµÏÖÆ½Ì¨²îÒì»¯Àà
-2£¬Ìí¼ÓJNI Androidµ÷ÓÃ
-3£¬Ìí¼Ó¶àÏß³Ì·ÃÎÊÊý¾ÝµÄ·½·¨£¬lock.unlock
-4£¬Ìí¼ÓÈçºÎÈÃCocos GLÏß³ÌÖ´ÐÐ×ÓÏß³ÌÀïµÄÒ»¸ö·½·¨£¬performFunctionInCocosThread
-5£¬Ìí¼ÓÊµÏÖ£¬Èç¹ûÍâ²¿ÅÐ¶ÏÒ»¸öÀàÊÇ·ñÎö¹¹£¬ÔÚC+11 lambdaº¯Êý£¬»Øµ÷£¬·ÃÎÊÀà³ÉÔ±Ê±·Ç³£ÓÐÓÃ
-6£¬Ìí¼ÓÖ÷¶¯CrashÉÏ´«BuglyµÄ²âÊÔ·½·¨
-7£¬Ìí¼Ó²âÊÔAndroidÔÚÉÏÏÂÎÄ¶ªÊ§Ê±£¬¼àÌýµÄ·½·¨µ÷ÓÃ£¬¿ÉÒÔÓÎÏ·´¥·¢ÒµÎñÐèÒªÖØÐÂ³õÊ¼»¯Ïà¹ØµÄ·½·¨ EVENT_RENDERER_RECREATED
-8£¬Ìí¼ÓÒ»Ð©´íÎóµÄ·½·¨ÒýÓÃ£¬ÓëÕýÈ·Óë·ñ£¬²»ÒªÇ¿ÐÐÊ¹ÓÃÈ«¾ÖÖ¸ÕëÖ¸ÏòÒ»¸ö²»´æÔÚµÄÒÑ¾­Îö¹¹µÄÀàµØÖ·
+* æ·»åŠ ç±»å®žçŽ°å¹³å°å·®å¼‚åŒ–ç±»
+* æ·»åŠ JNI Androidè°ƒç”¨
+* æ·»åŠ å¤šçº¿ç¨‹è®¿é—®æ•°æ®çš„æ–¹æ³•ï¼Œlock.unlock
+* æ·»åŠ å¦‚ä½•è®©Cocos GLçº¿ç¨‹æ‰§è¡Œå­çº¿ç¨‹é‡Œçš„ä¸€ä¸ªæ–¹æ³•ï¼ŒperformFunctionInCocosThread
+* æ·»åŠ å®žçŽ°ï¼Œå¦‚æžœå¤–éƒ¨åˆ¤æ–­ä¸€ä¸ªç±»æ˜¯å¦æžæž„ï¼Œåœ¨C+11 lambdaå‡½æ•°ï¼Œå›žè°ƒï¼Œè®¿é—®ç±»æˆå‘˜æ—¶éžå¸¸æœ‰ç”¨
+* æ·»åŠ ä¸»åŠ¨Crashä¸Šä¼ Buglyçš„æµ‹è¯•æ–¹æ³•
+* æ·»åŠ æµ‹è¯•Androidåœ¨ä¸Šä¸‹æ–‡ä¸¢å¤±æ—¶ï¼Œç›‘å¬çš„æ–¹æ³•è°ƒç”¨ï¼Œå¯ä»¥æ¸¸æˆè§¦å‘ä¸šåŠ¡éœ€è¦é‡æ–°åˆå§‹åŒ–ç›¸å…³çš„æ–¹æ³• EVENT_RENDERER_RECREATED
+* æ·»åŠ ä¸€äº›é”™è¯¯çš„æ–¹æ³•å¼•ç”¨ï¼Œä¸Žæ­£ç¡®ä¸Žå¦ï¼Œä¸è¦å¼ºè¡Œä½¿ç”¨å…¨å±€æŒ‡é’ˆæŒ‡å‘ä¸€ä¸ªä¸å­˜åœ¨çš„å·²ç»æžæž„çš„ç±»åœ°å€
