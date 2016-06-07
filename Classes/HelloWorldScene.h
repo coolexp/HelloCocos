@@ -4,14 +4,8 @@
 #include "cocos2d.h"
 #include <mutex>
 #include "DataLock.h"
+#include "DataVO.h"
 
-struct DataVO
-{
-	int i;
-	DataVO(){
-		i = 1;
-	}
-};
 struct TestData {
 	TestData(bool *value) {
 		m_pValue = value;
@@ -78,6 +72,8 @@ private:
 	*/
 	void generateChar(char* p);
 	void timeGap(float dt);
+
+	DataVO m_DataVO;
 	/**
 	* @brief 主动Crash，
 	*/
@@ -90,6 +86,8 @@ private:
 	* @brief 测试多线程操作数据，
 	*/
 	void testMulThread();
+
+	void testHandler();
 };
 
 #endif // __HELLOWORLD_SCENE_H__

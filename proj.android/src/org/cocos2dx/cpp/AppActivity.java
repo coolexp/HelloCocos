@@ -26,6 +26,8 @@ THE SOFTWARE.
 ****************************************************************************/
 package org.cocos2dx.cpp;
 
+import java.io.File;
+
 import org.cocos2dx.cpp.ScreenObserver.ScreenStateListener;
 import org.cocos2dx.lib.Cocos2dxActivity;
 import org.cocos2dx.lib.Cocos2dxGLSurfaceView;

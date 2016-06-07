@@ -1,5 +1,6 @@
 #include "HelloWorldScene.h"
 #include "platform/PlatformManager.h"
+#include "Observable.h"
 
 USING_NS_CC;
 
@@ -79,13 +80,13 @@ bool HelloWorld::init()
 	testHandler(110);
 
 	// 测试错误的全局指针指向一个已经释放的内存地址
-	DataVO vo;
-	vo.i = 5;
+	/*DataVO vo;
+	vo.setValue(5);
 	// 错误用法
 	setDataVO(&vo);
 
 	// 正确用法
-	setDataVO(vo);
+	setDataVO(vo);*/
 
 	std::string value = "HelloWorld";
 
@@ -107,17 +108,21 @@ bool HelloWorld::init()
 		TestData v(&isValid);
 	}
 	if (isValid) {
-		CCLOG("Exit");
-	}
-	else {
-		CCLOG("Not Exit");
+		CCLOG("没有析构");
+	}else {
+		CCLOG("已经析构");
 	}
 
 	// 测试错误的写法，导致内存泄露
 	char *p = nullptr;
 	generateChar(p);
 	free(p);
-
+	{
+		m_pDataVO = new DataVO();
+		std::shared_ptr<DataVO> pp =std::make_shared<DataVO>(*m_pDataVO);
+		Observable::getInstance()->registerNode(pp);
+	}
+	//Observable::getInstance()->registerNode(node);
     return true;
 }
 // 错误用法
@@ -128,6 +133,30 @@ void HelloWorld::setDataVO(DataVO* vo){
 // 正确用法
 void HelloWorld::setDataVO(const DataVO& vo){
 	
+}
+
+static std::atomic<int> cnt = { 0 };
+void f()
+{
+	for (int n = 0; n < 1000; ++n) {
+		cnt.fetch_add(1, std::memory_order_relaxed);
+	}
+}
+int t(int value) {
+	return value + 10;
+}
+void HelloWorld::testHandler() {
+	std::vector<std::thread> v;
+	for (int n = 0; n < 10; ++n) {
+		v.emplace_back(f);
+	}
+	for (auto& t : v) {
+		t.join();
+	}
+	CCLOG("%d", cnt);
+	std::future<int> future = std::async(t, 10);
+	// 该线程可以做其他事情。
+	int value =future.get();// 如果t没有执行完，直接调用，该线程会阻塞
 }
 
 void HelloWorld::printHandler(int value){
@@ -156,6 +185,9 @@ void HelloWorld::timeGap(float dt) {
 }
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
+	testHandler();
+	//Observable::getInstance()->notifyObservers();
+	return;
 	testMulThread();// 测试子线程与GL线程操作同一份数据，数据同步性及准确性
 	return;
 	crashMe();
