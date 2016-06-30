@@ -8,3 +8,6 @@
 * 添加主动Crash上传Bugly的测试方法
 * 添加测试Android在上下文丢失时，监听的方法调用，可以游戏触发业务需要重新初始化相关的方法 EVENT_RENDERER_RECREATED
 * 添加一些错误的方法引用，与正确与否，不要强行使用全局指针指向一个不存在的已经析构的类地址
+
+
+![A](Resources/res/DialogIcon/OFF_CN_100x100_Cha_nanren.png)![A](Resources/res/DialogIcon/OFF_CN_100x100_Cha_nvren.png)
