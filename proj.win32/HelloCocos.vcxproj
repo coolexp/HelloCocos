@@ -150,6 +150,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Observable.cpp" />
     <ClCompile Include="..\Classes\platform\PlatformManager.cpp" />
     <ClCompile Include="..\Classes\platform\win32\PlatformManager_Win32.cpp" />
+    <ClCompile Include="..\Classes\ShaderLayer.cpp" />
     <ClCompile Include="..\Classes\UserDataVO.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -161,6 +162,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Observable.h" />
     <ClInclude Include="..\Classes\platform\PlatformManager.h" />
     <ClInclude Include="..\Classes\platform\win32\PlatformManager_Win32.h" />
+    <ClInclude Include="..\Classes\ShaderLayer.h" />
     <ClInclude Include="..\Classes\UserDataVO.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
